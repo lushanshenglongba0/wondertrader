@@ -21,7 +21,7 @@
 #include "../Share/ModuleHelper.hpp"
 
 #include <boost/filesystem.hpp>
-
+#include <iostream>
 const char* ENTRUST_SECTION = "entrusts";
 const char* ORDER_SECTION = "orders";
 
@@ -457,6 +457,7 @@ int TraderCTP::queryAccount()
 			wt_strcpy(req.InvestorID, m_strUser.c_str(), m_strUser.size());
 			m_pUserAPI->ReqQryTradingAccount(&req, genRequestID());
 		});
+		std::cout << "jack ParserCTP::queryAccount InvestorID" << m_strUser.c_str() << endl;
 	}
 
 	//triggerQuery();
@@ -563,6 +564,7 @@ void TraderCTP::OnFrontConnected()
 {
 	if (m_sink)
 		m_sink->handleEvent(WTE_Connect, 0);
+	std::cout << "jack TraderCTP::OnFrontConnected" << endl;
 }
 
 void TraderCTP::OnFrontDisconnected(int nReason)
@@ -570,6 +572,7 @@ void TraderCTP::OnFrontDisconnected(int nReason)
 	m_wrapperState = WS_NOTLOGIN;
 	if (m_sink)
 		m_sink->handleEvent(WTE_Close, nReason);
+	std::cout << "jack TraderCTP::OnFrontDisconnected" << endl;
 }
 
 void TraderCTP::OnHeartBeatWarning(int nTimeLapse)
@@ -731,6 +734,9 @@ void TraderCTP::OnRspOrderInsert(CThostFtdcInputOrderField *pInputOrder, CThostF
 		if (m_sink)
 			m_sink->onTraderError(err);
 		err->release();
+
+		std::cout << "jack TraderCTP::OnRspOrderInsert---------" << endl;
+		std::cout << "jack TraderCTP::OnRspOrderInsert id:" << pRspInfo->ErrorID << " msg:" << pRspInfo->ErrorMsg << endl;
 	}
 }
 
@@ -745,6 +751,9 @@ void TraderCTP::OnRspOrderAction(CThostFtdcInputOrderActionField *pInputOrderAct
 		WTSError* error = WTSError::create(WEC_ORDERCANCEL, pRspInfo->ErrorMsg);
 		if (m_sink)
 			m_sink->onTraderError(error);
+
+		std::cout << "jack TraderCTP::OnRspOrderAction---------" << endl;
+		std::cout << "jack TraderCTP::OnRspOrderAction id:" << pRspInfo->ErrorID << " msg:" << pRspInfo->ErrorMsg << endl;
 	}
 }
 
@@ -1013,6 +1022,8 @@ void TraderCTP::OnRspQryOrder(CThostFtdcOrderField *pOrder, CThostFtdcRspInfoFie
 void TraderCTP::OnRspError(CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 {
 	int x = 0;
+	std::cout << "jack TraderCTP::OnRspError---------" << endl;
+	std::cout << "jack TraderCTP::OnRspError id:" << pRspInfo->ErrorID << " msg:" << pRspInfo->ErrorMsg << endl;
 }
 
 void TraderCTP::OnRtnOrder(CThostFtdcOrderField *pOrder)
@@ -1378,6 +1389,8 @@ void TraderCTP::OnErrRtnOrderInsert(CThostFtdcInputOrderField *pInputOrder, CTho
 		entrust->release();
 		err->release();
 	}
+	std::cout << "jack TraderCTP::OnErrRtnOrderInsert---------" << endl;
+	std::cout << "jack TraderCTP::OnErrRtnOrderInsert id:" << pRspInfo->ErrorID << " msg:"<< pRspInfo->ErrorMsg << endl;
 }
 
 bool TraderCTP::isConnected()
@@ -1435,7 +1448,7 @@ int TraderCTP::confirm()
 		write_log(m_sink, LL_ERROR, "[TraderCTP][{}-{}] Sending confirming of settlement data failed: {}", m_strBroker.c_str(), m_strUser.c_str(), iResult);
 		return -1;
 	}
-
+	std::cout << "jack ParserCTP::confirm InvestorID" << m_strUser.c_str() << endl;
 	return 0;
 }
 
@@ -1449,7 +1462,10 @@ int TraderCTP::authenticate()
 	wt_strcpy(req.AuthCode, m_strAuthCode.c_str(), m_strAuthCode.size());
 	wt_strcpy(req.AppID, m_strAppID.c_str(), m_strAppID.size());
 	m_pUserAPI->ReqAuthenticate(&req, genRequestID());
-
+	std::cout << "jack ParserCTP::authenticate AppID" << m_strAppID.c_str()  << endl;
+	std::cout << "jack ParserCTP::authenticate AuthCode" << m_strAuthCode.c_str() << endl;
+	std::cout << "jack ParserCTP::authenticate BrokerID" << m_strBroker.c_str() << endl;
+	std::cout << "jack ParserCTP::authenticate UserID" << m_strUser.c_str() << endl;
 	return 0;
 }
 

@@ -19,7 +19,7 @@
 #include "../Share/StdUtils.hpp"
 
 #include <boost/filesystem.hpp>
-
+#include <iostream>
  //By Wesley @ 2022.01.05
 #include "../Share/fmtlib.h"
 template<typename... Args>
@@ -182,7 +182,7 @@ void ParserCTP::OnFrontConnected()
 		write_log(m_sink, LL_INFO, "[ParserCTP] Market data server connected");
 		m_sink->handleEvent(WPE_Connect, 0);
 	}
-
+	std::cout << "jack ParserCTP::OnFrontConnected" << endl;
 	ReqUserLogin();
 }
 
@@ -200,7 +200,7 @@ void ParserCTP::OnRspUserLogin( CThostFtdcRspUserLoginField *pRspUserLogin, CTho
 		{
 			m_sink->handleEvent(WPE_Login, 0);
 		}
-
+		std::cout << "jack ParserCTP::OnRspUserLogin" << endl;
 		//订阅行情数据
 		DoSubscribeMD();
 	}
@@ -221,6 +221,7 @@ void ParserCTP::OnFrontDisconnected( int nReason )
 		write_log(m_sink, LL_ERROR, "[ParserCTP] Market data server disconnected: {}", nReason);
 		m_sink->handleEvent(WPE_Close, 0);
 	}
+	std::cout << "jack ParserCTP::OnFrontDisconnected" << endl;
 }
 
 void ParserCTP::OnRspUnSubMarketData( CThostFtdcSpecificInstrumentField *pSpecificInstrument, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast )
@@ -230,6 +231,21 @@ void ParserCTP::OnRspUnSubMarketData( CThostFtdcSpecificInstrumentField *pSpecif
 
 void ParserCTP::OnRtnDepthMarketData( CThostFtdcDepthMarketDataField *pDepthMarketData )
 {	
+	string a = pDepthMarketData->InstrumentID;
+	string b = "IF";
+	string::size_type idx;
+	idx = a.find(b);//在a中查找b.
+	if (idx == string::npos)//不存在。
+		;
+	else//存在。
+		std::cout << "jack OnRtnDepthMarketData" << pDepthMarketData->InstrumentID << endl;
+	string c = "IH";
+	idx = a.find(c);//在a中查找b.
+	if (idx == string::npos)//不存在。
+		;
+	else//存在。
+		std::cout << "jack OnRtnDepthMarketData" << pDepthMarketData->InstrumentID << endl;
+
 	if(m_pBaseDataMgr == NULL)
 	{
 		return;

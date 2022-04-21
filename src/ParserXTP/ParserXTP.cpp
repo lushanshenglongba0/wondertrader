@@ -18,7 +18,7 @@
 #include "../Share/ModuleHelper.hpp"
 
 #include <boost/filesystem.hpp>
-
+#include <iostream>
  //By Wesley @ 2022.01.05
 #include "../Share/fmtlib.h"
 template<typename... Args>
@@ -205,6 +205,7 @@ void ParserXTP::OnUnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last
 
 void ParserXTP::OnDepthMarketData(XTPMD *market_data, int64_t bid1_qty[], int32_t bid1_count, int32_t max_bid1_count, int64_t ask1_qty[], int32_t ask1_count, int32_t max_ask1_count)
 {	
+	std::cout << "jack OnRtnDepthMarketData" << market_data->ticker << endl;
 	if(m_pBaseDataMgr == NULL)
 	{
 		return;
@@ -282,6 +283,7 @@ void ParserXTP::OnDepthMarketData(XTPMD *market_data, int64_t bid1_qty[], int32_
 
 void ParserXTP::OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last)
 {
+	std::cout << "jack OnRspSubMarketData" << ticker->ticker << endl;
 	if (!IsErrorRspInfo(error_info))
 	{
 

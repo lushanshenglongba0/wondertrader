@@ -17,7 +17,7 @@
 #include "../Share/TimeUtils.hpp"
 #include "../Share/CodeHelper.hpp"
 #include "../Share/StdUtils.hpp"
-
+#include <iostream>
 
 WTSHotMgr::WTSHotMgr()
 	: m_pExchgHotMap(NULL)
@@ -50,7 +50,11 @@ bool WTSHotMgr::loadHots(const char* filename)
 	}
 
 	m_pExchgHotMap = WTSExchgHotMap::create();
-
+	for (const std::string& exchg : root->memberNames())
+	{
+		WTSVariant* jExchg = root->get(exchg);
+		std::cout << "hot json exchange" << exchg;
+	}
 	for(const std::string& exchg : root->memberNames())
 	{
 		WTSVariant* jExchg = root->get(exchg);

@@ -1,0 +1,14 @@
+parsers:
+-   active: true
+    module: ParserXTP
+    host: 119.3.103.38
+    port: 6002
+    user: 15014658
+    pass: CxwMH7vf
+    id: simnow
+    protocol: 1
+    clientid: 1
+    hbinterval: 15
+    buffsize: 128  
+    code: 'SSE.601127'
+

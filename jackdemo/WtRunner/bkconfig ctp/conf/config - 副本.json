@@ -1,0 +1,153 @@
+{
+	"AppName":"OMS.ctp",
+	"LogName":"orderserver",
+	"EnginName":"TDEnginCtp",
+	"ShmInName":"orderserver.req",
+	"ShmOutName":"orderserver.rtn",
+	"MaxLoss":-200000000,
+	"WaitStrategy":2,
+	"AccountInfos":
+	{
+		//"InvestorId":"121878",
+		//"Password":"hxqh168",
+		"InvestorId":"121876",
+		"Password":"hxqh168",
+		"BrokerId":"9999",
+		"ProductInfo":"KylinOpt",
+		"AppId":"simnow_client_test",
+		"AuthCode":"0000000000000000"
+	},
+	"FrontAddress":
+	{
+		"TDAddress":"tcp://180.168.146.187:10100",
+		"MDAddress":"tcp://180.168.146.187:10110"
+	//	"MDAddress":"tcp://112.64.143.218:41213"
+	},
+  "InstrumentSetting": [
+    {
+      "instrument": "IH1909",
+      "exchangeId": "CFFEX",
+      "priceOffset": 5,
+      "closeType": 1,
+      "autoBuy": 1,
+      "autoSell": 1,
+      "automation": 1,
+      "maxCxlCnt": 390,
+      "maxNetPosition": 2,
+      "maxOrderCnt": 2000,
+      "maxOpenCnt": 0,
+      "reqCntTime": 1,
+      "maxReqOrderCnt": 50,
+      "cxlCntTime": 1,
+      "maxCxlOrderCnt": 30,
+      "flowControlByApi": 100
+    },
+    {
+      "instrument": "IF1909",
+      "exchangeId": "CFFEX",
+      "priceOffset": 5,
+      "closeType": 1,
+      "autoBuy": 1,
+      "autoSell": 1,
+      "automation": 1,
+      "maxCxlCnt": 390,
+      "maxNetPosition": 2,
+      "maxOrderCnt": 1000,
+      "maxOpenCnt": 0,
+      "reqCntTime": 1,
+      "maxReqOrderCnt": 50,
+      "cxlCntTime": 1,
+      "maxCxlOrderCnt": 30,
+      "flowControlByApi": 100
+    },
+    {
+      "instrument": "IC2204",
+      "exchangeId": "CFFEX",
+      "priceOffset": 5,
+      "closeType": 1, //平仓模式 0: T+0, 1: T+1
+      "autoBuy": 1, //买开关
+      "autoSell": 1, //卖开关
+      "automation": 1, //交易开关
+      "maxCxlCnt": 490, //最大撤单数
+      "maxNetPosition": 3, //最大净仓位
+      "maxOrderCnt": 1000, // 最大报单量
+      "maxOpenCnt":100, 
+      //N秒不超过多少笔报单
+      "reqCntTime": 1,
+      "maxReqOrderCnt": 50,
+      //n秒不超过多少笔撤单
+      "cxlCntTime": 1,
+      "maxCxlOrderCnt": 30,
+      //api流控， 以秒为单位
+      "flowControlByApi": 100
+    },
+    {
+      "instrument": "T1912",
+      "exchangeId": "CFFEX",
+      "priceOffset": 5,
+      "closeType": 0,
+      "autoBuy": 1,
+      "autoSell": 1,
+      "automation": 1,
+      "maxCxlCnt": 390,
+      "maxNetPosition": 2,
+      "maxOrderCnt": 10000,
+      "maxOpenCnt": 10000,
+      "reqCntTime": 1,
+      "maxReqOrderCnt": 50,
+      "cxlCntTime": 1,
+      "maxCxlOrderCnt": 30,
+      "flowControlByApi": 100
+    }
+
+  ],
+	"Plugins":
+	[
+		{
+			"appName":"AlgoStrategy",
+			"waitStrategy":2,
+			"isPrintMd":1,
+			"mdSrc":
+			[
+				{
+					"srcType":"EfMdSrc"
+					,"Name":"efviSrc_ens2f0"	
+					,"Interface":"ens2f0"
+					,"ips":["232.8.0.18","232.8.0.18","232.8.0.19","232.8.0.19"]
+					,"ports":[20110,22110,21110,23110]
+				}		
+/*
+				{
+				    "srcType":"FemasMulticastSrc"
+				    ,"Name":"udp_1"
+				    ,"FrontAddr":"tcp://10.116.140.1:7231"
+				    ,"HostIP":"10.116.176.23"
+				    ,"User":"yztz_001"
+				    ,"TopicID":110
+				    ,"Passwd":"48af3va0"
+				    
+				    }
+					*/
+		/*	
+				,
+
+				{
+					
+					"srcType":"CapMdSrc"
+					,"Name":"udpcapsrc_enp101s0f1"
+					,"Interface" : "enp101s0f1"
+					,"Filter" : "udp and ( port 21110 or port 19110 or port 22110 or port 23110 or port 20110 or port 18110)"
+					//"Filter" : "udp and ( port 21110 )",
+					,"Type" : 2
+				}
+*/
+		
+			]
+			,"algoConfig":"../conf/algoConfig.json"
+			
+			
+		}
+	]
+
+
+}

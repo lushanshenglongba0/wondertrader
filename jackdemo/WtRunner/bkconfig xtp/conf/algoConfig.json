@@ -1,0 +1,72 @@
+{
+"AppName":"AlgoIC",
+"ShmReqName":"orderserver.req",
+"ShmRtnName":"orderserver.rtn",
+"algo":
+[
+  {
+    "tradeInstrument": "601127",
+    "tickNum": 1,
+    "startTradingTime": [ "9:30:10", "13:00:10" ],
+    "stopTradingTime": [ "11:28:50", "14:58:50" ],
+    "sig2Qty": {
+      "2.9": 3
+    },
+    "isAllMdNeedProccessed": true,
+    "isOnlyTargetGenOrder": false,
+    "closeTime": [ "11:28:30", "14:58:30" ],
+    "longCxlThr": -0.8,
+    "shortCxlThr": 0.8,
+    "isLmpMode": true,
+    "multiplierSignal": 1.2139402479,
+
+    "spreadBias": 0.6,
+    "maxImpSize": 2,
+    "maxTickToCross": 3,
+    "maxTickToImprove": 1,
+
+    "x1_sigv_2_dpx":0.3,
+    "y1_sigv_2_dpx":1,
+    "x2_sigv_2_dpx":0.9,
+    "y2_sigv_2_dpx":2,
+
+
+
+    "instrument2signal": [
+      {
+        "instrument": "601127",
+        "signal": [
+          {
+            "name": "F000",
+            "para": [ "-0.0448065147748" ],
+            "avg": 0,
+            "std": 1,
+            "weight": 1
+          },
+          {
+            "name": "F000",
+            "para": [ "-0.1448065147748" ],
+            "avg": 0,
+            "std": 1,
+            "weight": 1
+          }
+        ]
+      }
+    ]
+  }
+],
+
+"contract" :[
+	{"name":"cu", "tick":10, "multiper":5,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"IF","tick":0.2,"multiper":300,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"IH","tick":0.2,"multiper":300,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"IC","tick":0.2,"multiper":200,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"T","tick":0.005,"multiper":10000,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+]
+}
+
+
+
+
+
+

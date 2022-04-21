@@ -1,0 +1,50 @@
+{	"Plugins":
+	[
+		{
+			"appName":"AlgoStrategy",
+			"waitStrategy":2,
+			"isPrintMd":1,
+			"mdSrc":
+			[
+				{
+					"srcType":"EfMdSrc"
+					,"Name":"efviSrc_ens2f0"	
+					,"Interface":"ens2f0"
+					,"ips":["232.8.0.18","232.8.0.18","232.8.0.19","232.8.0.19"]
+					,"ports":[20110,22110,21110,23110]
+				}		
+
+		
+			]
+			,"algoConfig":"../conf/algoConfig.json"
+			
+			
+		}
+	],
+  "CFFEX": {
+      "IC": [
+          {
+              "date": 20190102,
+              "from": " ",
+              "newclose": 4096.8,
+              "oldclose": 0.0,
+              "to": "IC1901"
+          },
+          {
+              "date": 20210716,
+              "from": "IC2107",
+              "newclose": 6873.8,
+              "oldclose": 6920.0,
+              "to": "IC2204"
+          }
+      ],
+      "IF": [
+          {
+              "date": 20190102,
+              "from": "",
+              "newclose": 2962.2,
+              "oldclose": 0.0,
+              "to": "IF1901"
+          }
+      ]
+      }}

@@ -1,0 +1,9 @@
+parsers:
+-   active: true
+    broker: '9999'
+    code: 'CFFEX.IF2205,CFFEX.IH2205,CFFEX.IC2205'
+    front: tcp://180.168.146.187:10131
+    id: parser
+    module: ParserCTP
+    pass: freedom136!
+    user: 191098

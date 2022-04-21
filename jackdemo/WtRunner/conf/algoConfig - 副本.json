@@ -1,0 +1,292 @@
+{ // jiang 2019-11-05 15:51:10.131800  for local test only not for simnow
+"AppName":"AlgoSp&fup&fu",
+"ShmReqName":"orderserver.req",
+"ShmRtnName":"orderserver.rtn",
+"algo":
+[
+		//algo PLATFORMVERSION:  V5P//waitFlag :True  Only zn come then send order//tickNum how many ticks from limit up/down to stop trading//maxLost always negative//cxlThrValue  not used now//sig2Qty opendict
+  {
+    "tradeInstrument": "IC2204",
+    "tickNum": 1, //涨跌停
+    "stopTradingTime": [ "11:28:50", "14:58:50", "0:59:50" ], //["11:29:50", "14:59:50", "0:59:50"],
+    "sig2Qty": {
+      "2.9": 3
+    }, //original sig - (0.5*ticksize/ multiplierSignal) = new sig ; original sig:"1.8375": 1, "2.1668": 2} //--------change------------------------
+    "isAllMdNeedProccessed": true,
+    "isOnlyTargetGenOrder": false,
+    "closeTime": [ "11:28:30", "14:58:30" ], //only close 
+    "longCxlThr": -0.8, //多单撤单阈值
+    "shortCxlThr": 0.8, //空单撤单阈值
+    "isLmpMode": true,
+    "multiplierSignal": 1.2139402479, //--------change------------------------
+
+    "spreadBias": 0.6,
+    "maxImpSize": 2,
+    "maxTickToCross": 3,
+    "maxTickToImprove": 1,
+
+
+    "instrument2signal": [
+      {
+        "instrument": "IC2204",
+        "signal": [
+          {
+            "name": "F000", //IC1911_0
+            "para": [ "-0.0448065147748" ],
+            "avg": 0,
+            "std": 1,
+            "weight": 1
+          },
+          {
+            "name": "F074", //Lbo_IC1911_1
+            "para": [ "23.6", "2", "2", "0.5", "Begin", "End" ],
+            "avg": 1.004e-07,
+            "std": 3.63644e-05,
+            "weight": 0.0044776668
+          },
+          {
+            "name": "F074", //Lbo_IC1911_2
+            "para": [ "10.6", "4", "4", "1.0", "Begin", "End" ],
+            "avg": 7.144e-07,
+            "std": 4.73167e-05,
+            "weight": 0.1343378766
+          },
+          {
+            "name": "F073", //A_Lbi_IC1911_3
+            "para": [ "2", "5", "Begin", "End" ],
+            "avg": -5.1908e-06,
+            "std": 0.2764117121,
+            "weight": 0.1523154672
+          },
+          {
+            "name": "F073", //A_Lbi_IC1911_4
+            "para": [ "2", "4", "Begin", "End" ],
+            "avg": -1.30049e-05,
+            "std": 0.352119777,
+            "weight": 0.0989686493
+          },
+          {
+            "name": "F073", //A_Lbi_IC1911_5
+            "para": [ "2", "3", "Begin", "End" ],
+            "avg": -1.47081e-05,
+            "std": 0.4918544415,
+            "weight": 0.0793323487
+          },
+          {
+            "name": "F073", //A_Lbi_IC1911_6
+            "para": [ "2", "2", "Begin", "End" ],
+            "avg": -3.9338e-06,
+            "std": 0.8399131217,
+            "weight": 0.0489446635
+          },
+          {
+            "name": "F069", //Lbi_IC1911_7
+            "para": [ "5", "Begin", "Tanh" ],
+            "avg": 0.0736243705,
+            "std": 0.3793187855,
+            "weight": 0.0156500314
+          },
+          {
+            "name": "F070", //Lbi_IC1911_8
+            "para": [ "5", "Begin", "End" ],
+            "avg": 0.0781912482,
+            "std": 3.2504620154,
+            "weight": 0.1688797579
+          },
+          {
+            "name": "F070", //Lbi_IC1911_9
+            "para": [ "5", "Begin", "Tanh" ],
+            "avg": 0.0202436595,
+            "std": 0.8322207081,
+            "weight": 0.0192371452
+          },
+          {
+            "name": "F071", //Lwe_IC1911_10
+            "para": [ "5", "Begin", "End", "1" ],
+            "avg": 0.0472038287,
+            "std": 1.8911988932,
+            "weight": 0.0830187993
+          },
+          {
+            "name": "F071", //Lwe_IC1911_11
+            "para": [ "5", "Begin", "Tanh", "1" ],
+            "avg": 0.0164456859,
+            "std": 0.7594649656,
+            "weight": 0.0352532172
+          },
+          {
+            "name": "F065", //Lqr_IC1911_12
+            "para": [ "3", "0", "1", "HP", "0", "NJ", "0", "Begin", "End" ],
+            "avg": 0.0050637485,
+            "std": 0.2817770794,
+            "weight": 0.0286961649
+          },
+          {
+            "name": "F043", //ddD_IC1911_13
+            "para": [ "0", "0", "HP", "0", "NJ", "Begin", "End", "1" ],
+            "avg": -0.0110169673,
+            "std": 1.028928378,
+            "weight": 0.0842846558
+          },
+          {
+            "name": "F043", //ddD_IC1911_14
+            "para": [ "0", "0", "HP", "0", "J", "Begin", "End", "1" ],
+            "avg": -0.0323219479,
+            "std": 3.2815568483,
+            "weight": 0.133870437
+          },
+          {
+            "name": "F043", //ddD_IC1911_15
+            "para": [ "1", "1", "HPRSZERO", "0", "NJ", "Sqrt", "End", "1" ],
+            "avg": -0.0116575344,
+            "std": 0.5767312414,
+            "weight": 0.0709223815
+          },
+          {
+            "name": "F044", //ddD_IC1911_16
+            "para": [ "1.5", "1", "HP", "0", "J", "3", "1", "Sqrt", "Tanh" ],
+            "avg": -0.0103091899,
+            "std": 0.5245985482,
+            "weight": 0.0938907594
+          },
+          {
+            "name": "F045", //ddE_IC1911_17
+            "para": [ "1.53", "5", "1", "HP", "0", "NJ", "1.5", "1", "Sqrt", "End" ],
+            "avg": -0.0039917614,
+            "std": 0.2669469162,
+            "weight": 0.0236432952
+          },
+          {
+            "name": "F046", //imi_IC1911_18
+            "para": [ "1.5", "1", "HE", "0", "DF", "Sqrt", "End", "1" ],
+            "avg": 0.0068325861,
+            "std": 0.7934846622,
+            "weight": 0.3831225168
+          },
+          {
+            "name": "F047", //imi_IC1911_19
+            "para": [ "0", "0", "HP", "0", "DF", "3", "1", "Sqrt", "Tanh" ],
+            "avg": 0.0036526164,
+            "std": 0.4461522384,
+            "weight": 0.03221589
+          },
+          {
+            "name": "F047", //imi_IC1911_20
+            "para": [ "0", "0", "HP", "0", "NJ", "3", "0", "Sqrt", "End" ],
+            "avg": 0.0030069074,
+            "std": 0.2394475485,
+            "weight": 0.0629379079
+          },
+          {
+            "name": "F047", //imi_IC1911_21
+            "para": [ "1.5", "3", "HE", "0", "DF", "3", "1", "Sqrt", "Tanh" ],
+            "avg": 0.002780165,
+            "std": 0.2644350606,
+            "weight": 0.0163311828
+          },
+          {
+            "name": "F047", //imi_IC1911_22
+            "para": [ "3", "3", "HE", "0", "NJ", "3", "1", "Sqrt", "Tanh" ],
+            "avg": 0.0012502646,
+            "std": 0.0418812104,
+            "weight": 0.0791511807
+          },
+          {
+            "name": "F010", //rde_IC1911_23
+            "para": [ "Sqrt", "LogSP" ],
+            "avg": -0.002794891,
+            "std": 0.2768293078,
+            "weight": 0.0676418687
+          },
+          {
+            "name": "F001", //eal_IC1911_24
+            "para": [ "Begin", "End" ],
+            "avg": -0.0333174698,
+            "std": 1.6593936503,
+            "weight": 0.3079182554
+          },
+          {
+            "name": "F051", //ANN_idY_IC1911_25
+            "para": [ "5", "100", "Begin", "End" ],
+            "avg": -0.0334636732,
+            "std": 1.8878619387,
+            "weight": 0.0294395694
+          },
+          {
+            "name": "F051", //ANN_idY_IC1911_26
+            "para": [ "10", "100", "Begin", "End" ],
+            "avg": -0.032671987,
+            "std": 2.6034813382,
+            "weight": 0.1092831906
+          },
+          {
+            "name": "F053", //A_eal_IC1911_27
+            "para": [ "1", "Begin", "Tanh" ],
+            "avg": -0.0035095713,
+            "std": 0.7351985443,
+            "weight": 0.0902745426
+          },
+          {
+            "name": "F057", //A_sK8_IC1911_28
+            "para": [ "30", "1.0", "1e-07", "1e-07", "1e-07", "1.5" ],
+            "avg": 4.7668e-06,
+            "std": 0.3532318981,
+            "weight": 0.0812717563
+          },
+          {
+            "name": "F058", //A_sK10_IC1911_29
+            "para": [ "5", "1.0", "0.0001", "0.0001", "1.0" ],
+            "avg": 0.0003597619,
+            "std": 2.8241873846,
+            "weight": 0.0058011617
+          },
+          {
+            "name": "F062", //A_rat_IC1911_30
+            "para": [ "1", "0", "0", "HP", "0", "NJ", "Begin", "Sigmoid" ],
+            "avg": -0.0001035918,
+            "std": 0.2950983602,
+            "weight": 0.0629812756
+          }
+        ]
+      },
+      {
+        "instrument": "IF2204",
+        "signal": [
+          {
+            "name": "F030", //Rat_pr_IF1911_31
+            "para": [ "30", "2.0" ],
+            "avg": -0.0231703145,
+            "std": 2.6578254195,
+            "weight": 0.413017594,
+            "isPair": true
+          }
+        ]
+      }
+    ]
+  }
+],
+//the basic information of the contract: {"symbol", tickprice, multiper} 
+"contract" :[
+	{"name":"cu", "tick":10, "multiper":5,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"zn", "tick":5,"multiper":5,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"rb","tick":1,"multiper":10,"q_thold_incre":750,"q_thold_abs":1500,"deepTicks":2}
+	,{"name":"sp","tick":2,"multiper":10,"q_thold_incre":200,"q_thold_abs":400,"deepTicks":2}
+	,{"name":"ru","tick":5,"multiper":10,"q_thold_incre":200,"q_thold_abs":400,"deepTicks":2}
+	,{"name":"bu","tick":2,"multiper":10,"q_thold_incre":450,"q_thold_abs":900,"deepTicks":2}
+	,{"name":"fu","tick":1,"multiper":10,"q_thold_incre":300,"q_thold_abs":400,"deepTicks":2}
+	,{"name":"hc","tick":1,"multiper":10,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"ni","tick":10,"multiper":1,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"sn","tick":10,"multiper":1,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"sc","tick":0.1,"multiper":1000,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"IF","tick":0.2,"multiper":300,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"IH","tick":0.2,"multiper":300,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"IC","tick":0.2,"multiper":200,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+	,{"name":"T","tick":0.005,"multiper":10000,"q_thold_incre":1000,"q_thold_abs":2000,"deepTicks":2}
+]
+}
+
+
+
+
+
+

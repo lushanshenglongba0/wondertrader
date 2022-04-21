@@ -1,0 +1,20 @@
+{
+    "CFFEX": {
+        "IC": [
+            {
+                "date": 20190102,
+                "from": "",
+                "newclose": 4096.8,
+                "oldclose": 0.0,
+                "to": "IC1901"
+            },
+            {
+                "date": 20210716,
+                "from": "IC2107",
+                "newclose": 6873.8,
+                "oldclose": 6920.0,
+                "to": "IC2205"
+            }
+        ]
+    }
+}

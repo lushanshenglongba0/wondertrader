@@ -1,0 +1,5 @@
+1.WtRunner文件夹需要放在src/x64下面
+2.hft,parsers,traders里面需要补充dll
+
+3.bkconfig里面是配置好的ctp和xtp的config，已跑通
+4.ctp需要根据实际调整ip地址，24小时或者normal(开盘时候)
